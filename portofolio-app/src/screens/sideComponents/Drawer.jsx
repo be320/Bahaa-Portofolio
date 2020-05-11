@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Drawer = ({dark,handleDark}) => {
+const Drawer = ({dark,handleDark,handleDrawer}) => {
 
     const styles = {
         drawer:{
@@ -21,15 +21,22 @@ const Drawer = ({dark,handleDark}) => {
         handleDark(!dark);
     }
 
-    const openDrawer = () =>{
-        themeConverter();
+    const closeDrawer = () => {
+        handleDrawer();
     }
+
 
     return(
         <div style={styles.drawer}>
-        <p style={styles.drawerItem} >About</p>
-        <p style={styles.drawerItem} >Projects</p>
-        <p style={styles.drawerItem} >Contact</p>
+        <a href="#about" style={{ textDecoration: "none" }}>
+        <p style={styles.drawerItem} onClick={closeDrawer} >About</p>
+        </a>
+        <a href="#projects" style={{ textDecoration: "none" }}>
+        <p style={styles.drawerItem} onClick={closeDrawer} >Projects</p>
+        </a>
+        <a href="#contact" style={{ textDecoration: "none" }}>
+        <p style={styles.drawerItem} onClick={closeDrawer} >Contact</p>
+        </a>
         {dark ? <p style={styles.drawerItem} onClick={themeConverter} >Light Theme</p> :
          <p style={styles.drawerItem} onClick={themeConverter}   >Dark Theme</p> }
         </div>
