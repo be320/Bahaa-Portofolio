@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import Logo from "../assets/logo.png";
-import DarkLogo from "../assets/dark-logo.PNG";
+import Logo from "../assets/glasses.PNG";
+import DarkLogo from "../assets/dark-glasses.PNG";
 import ProfileImg from "../assets/profile.jpg";
 import DarkBug from "../assets/dark-bug.PNG";
 import Bug from "../assets/bug.PNG";
@@ -26,14 +26,18 @@ const Home = () => {
 
   const [dark, setDark] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
+  const [MyLogo,setMyLogo] = useState(Logo);
 
   const handleDark = value => {
     setDark(value);
+    setMyLogo(value? DarkLogo:Logo);
   };
 
   const handleDrawer = () => {
     setShowDrawer(!showDrawer);
   };
+
+
 
   // styling section
 
@@ -66,7 +70,7 @@ const Home = () => {
       maxWidth: isDesktopOrLaptop ? "50%" : "100%"
     },
     aboutTitle: {
-      color: dark ? "yellow" : "#d52121",
+      color: dark ? "#640dd4" : "#d52121",
       fontSize: isDesktopOrLaptop ? "50px" : "30px",
       fontWeight: "bold",
       fontFamily: "Comic Sans MS"
@@ -84,7 +88,7 @@ const Home = () => {
     imageShadow: {
       width: isDesktopOrLaptop ? "31em" : "22em",
       height: isDesktopOrLaptop ? "25em" : "18em",
-      backgroundColor: dark ? "yellow" : "#d52121",
+      backgroundColor: dark ? "#640dd4" : "#d52121",
       marginLeft: isDesktopOrLaptop ? "10px" : "0px",
       marginTop: isDesktopOrLaptop ? "0px" : "150px"
     },
@@ -102,6 +106,20 @@ const Home = () => {
       flexDirection: "row",
       justifyContent: "space-around",
       marginTop: isDesktopOrLaptop ? "0px" : "50px"
+    },
+    separator:{
+      width:'100%',
+      minHeight:'400px',
+      marginBottom:'50px',
+      backgroundColor:'#d52121'
+    },
+    projectsTitle: {
+      fontSize: '50px',
+      fontWeight: 'bold',
+      fontFamily:  'Comic Sans MS', 
+      color: 'white',
+      textAlign: 'center',
+      padding: '50px'
     }
   };
 
@@ -111,14 +129,14 @@ const Home = () => {
     <div style={styles.container}>
       {isDesktopOrLaptop && (
         <div style={styles.header}>
-          <img src={dark ? DarkLogo : Logo} alt="logo" width="200px" />
+          <img src={MyLogo} alt="logo" width="200px" />
           <Navbar dark={dark} />
           <ThemeButton dark={dark} handleDark={handleDark} />
         </div>
       )}
       {isTabletOrMobile && (
         <div style={styles.header}>
-          <img src={dark ? DarkLogo : Logo} alt="logo" width="110px" />
+          <img src={MyLogo} alt="logo" width="110px" />
           <div onClick={handleDrawer}>
             {showDrawer ? (
               <CloseIcon style={styles.drawerIcon} />
@@ -164,6 +182,14 @@ const Home = () => {
             width={isDesktopOrLaptop ? "600px" : "400px"}
           />
         )}
+      </div>
+      <div style={styles.separator}>
+          <div style={styles.projectsTitle}>
+            My Projects
+          </div>
+          <div style={styles.projectsTitle}>
+            My Projects
+          </div>
       </div>
     </div>
   );

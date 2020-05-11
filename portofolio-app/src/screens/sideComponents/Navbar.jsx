@@ -23,7 +23,7 @@ const Navbar = ({ dark }) => {
   };
 
   const hoverAction = e => {
-    e.target.style.backgroundColor = dark ? "yellow" : "#d52121";
+    e.target.style.backgroundColor = dark ? "#640dd4" : "#d52121";
     e.target.style.color = dark ? "#191a1d" : "#fff";
   };
 

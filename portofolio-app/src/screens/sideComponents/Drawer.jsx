@@ -7,13 +7,16 @@ const Drawer = ({dark,handleDark,handleDrawer}) => {
             zIndex: 2,
             position: 'absolute',
             width: '100%',
-            backgroundColor: dark? 'yellow':'#d52121',
+            backgroundColor: dark? '#640dd4':'#d52121',
         },
         drawerItem:{
-            color: dark? '#191a1d' : 'white',
+            color: dark? '#fff' : 'white',
             padding: '20px 0px 20px 20px',
-            borderBottom: '1px solid '+ (dark? '#191a1d' : '#fff'),
-            margin:'0px'
+            borderBottom: '1px solid '+ (dark? '#fff' : '#fff'),
+            margin:'0px',
+            fontWeight: 'bold',
+            fontSize: '20px',
+            fontFamily: 'Comic Sans MS'
         }
     }
 
