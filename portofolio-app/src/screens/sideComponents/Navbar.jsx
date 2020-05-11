@@ -14,23 +14,25 @@ const Navbar = ({dark}) => {
         navbarItem:{
             fontSize: '20px',
             fontWeight: 'bold',
-            fontFamily:  'Gill Sans', 
+            fontFamily:  'Comic Sans MS', 
             cursor: 'pointer',
             borderRadius: '20px',
             padding: '20px',
             alignSelf: 'center',
-            color: dark? 'white':'black',
-            backgroundColor: dark? 'rgba(0,0,0,.87)':'white',
+            color: dark? 'white':'#191a1d',
+            backgroundColor: dark? '#191a1d':'white',
         }
         
    }
 
    const hoverAction = (e) => {
-        e.target.style.backgroundColor = "#d52121";
+        e.target.style.backgroundColor = dark? "yellow" : "#d52121";
+        e.target.style.color = dark? "#191a1d":"#fff";
    }
 
    const leaveAction = (e) => {
-    e.target.style.backgroundColor = dark? 'rgba(0,0,0,.87)':'white';
+    e.target.style.backgroundColor = dark? '#191a1d':'white';
+    e.target.style.color = dark? 'white':'#191a1d';
 }
 
     return(

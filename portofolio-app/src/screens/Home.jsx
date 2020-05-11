@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Logo from "../assets/logo.png";
 import DarkLogo from "../assets/dark-logo.PNG";
+import ProfileImg from "../assets/profile.jpg";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
@@ -44,11 +45,54 @@ const Home = () => {
       position: 'relative'
     },
     container: {
-      backgroundColor: dark ? "rgba(0,0,0,.87)" : "white"
+      backgroundColor: dark ? "#191a1d" : "white"
     },
     drawerIcon: {
-      color: dark ? "white" : "black"
+      color: dark ? "white" : "#191a1d"
     },
+    aboutContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        //maxWidth: '40%',
+        padding: '150px',
+        justifyContent: 'space-between'
+    },
+    aboutDescription :{
+        display: 'flex',
+        flexDirection: 'column',
+        maxWidth: '50%'
+    },
+    aboutTitle: {
+        color: dark ? 'yellow' : '#d52121',
+        fontSize: '50px',
+        fontWeight: 'bold',
+        fontFamily:  'Comic Sans MS', 
+    },
+    aboutBody:{
+        color: dark? '#fff': '#191a1d',
+        fontSize: '30px',
+        fontWeight: 'bold',
+        fontFamily:  'Comic Sans MS', 
+        marginTop: '10px'
+    },
+    aboutImageContainer: {
+        alignItems: 'center'
+    },
+    imageShadow:{
+        width:'31em',
+        height:'25em',
+        backgroundColor: dark? 'yellow': '#d52121',
+        alignItems: 'center',
+        alignSelf: 'center'
+
+    },
+    imageStyle: {
+        zIndex:2,
+        position:'absolute',
+        padding:'50px',
+        marginTop: '-100px'
+    }
+    
   };
 
   // rendering section
@@ -73,8 +117,26 @@ const Home = () => {
       {isTabletOrMobile && showDrawer && (
         <Drawer dark={dark} handleDark={handleDark} />
       )}
-      {isTabletOrMobile &&  (
-        <p>I am Ahmed Bahaadddddddddddddddddddddddddddddddd</p>
+      {isDesktopOrLaptop &&  (
+        <div style={styles.aboutContainer}>
+            <div style={styles.aboutDescription} >
+                <div style={styles.aboutTitle}>
+                    Hi, I 'm Ahmed Bahaa.
+                </div>
+                <div style={styles.aboutBody} >  
+                    Software Engineering Studnet in Ain Shams University, Egypt. I am keen on developing elegant websites with powerful performance.
+                </div>
+            </div>
+            <div style={styles.aboutImageContainer} >
+                <div style={styles.imageStyle} >
+                <img src={ProfileImg} alt="Profile" width="400px"  />
+                </div>
+                <div style={styles.imageShadow}>
+
+                </div>
+                
+            </div>
+        </div>
       )}
     </div>
   );
