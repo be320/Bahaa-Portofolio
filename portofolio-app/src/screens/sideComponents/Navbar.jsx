@@ -8,7 +8,8 @@ const Navbar = ({dark}) => {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            width: '40%'
+            width: '40%',
+            height:'20%'
         },
         navbarItem:{
             fontSize: '20px',
