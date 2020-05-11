@@ -3,6 +3,8 @@ import { useMediaQuery } from "react-responsive";
 import Logo from "../assets/logo.png";
 import DarkLogo from "../assets/dark-logo.PNG";
 import ProfileImg from "../assets/profile.jpg";
+import DarkBug from "../assets/dark-bug.PNG";
+import Bug from "../assets/bug.PNG";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
@@ -52,25 +54,26 @@ const Home = () => {
     },
     aboutContainer: {
         display: 'flex',
-        flexDirection: 'row',
-        //maxWidth: '40%',
-        padding: '150px',
-        justifyContent: 'space-between'
+        flexDirection: isDesktopOrLaptop? 'row': 'column',
+        padding: isDesktopOrLaptop? '150px': '20px',
+        justifyContent: isDesktopOrLaptop? 'space-between': 'center',
+        alignItems:'center',
+        marginTop: isDesktopOrLaptop? '0px': '30px'
     },
     aboutDescription :{
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: '50%'
+        maxWidth: isDesktopOrLaptop? '50%' : '100%'
     },
     aboutTitle: {
         color: dark ? 'yellow' : '#d52121',
-        fontSize: '50px',
+        fontSize: isDesktopOrLaptop? '50px': '30px',
         fontWeight: 'bold',
         fontFamily:  'Comic Sans MS', 
     },
     aboutBody:{
         color: dark? '#fff': '#191a1d',
-        fontSize: '30px',
+        fontSize: isDesktopOrLaptop? '30px': '20px',
         fontWeight: 'bold',
         fontFamily:  'Comic Sans MS', 
         marginTop: '10px'
@@ -79,18 +82,26 @@ const Home = () => {
         alignItems: 'center'
     },
     imageShadow:{
-        width:'31em',
-        height:'25em',
+        width:isDesktopOrLaptop? '31em': '22em',
+        height: isDesktopOrLaptop? '25em': '18em',
         backgroundColor: dark? 'yellow': '#d52121',
-        alignItems: 'center',
-        alignSelf: 'center'
-
+        marginLeft: isDesktopOrLaptop? '10px': '0px',
+        marginTop: isDesktopOrLaptop? '0px': '150px'
     },
     imageStyle: {
         zIndex:2,
         position:'absolute',
-        padding:'50px',
-        marginTop: '-100px'
+        padding: isDesktopOrLaptop? '50px': '30px',
+        marginTop: isDesktopOrLaptop? '-100px': '50px',
+        marginLeft: isDesktopOrLaptop? '7px': '-4px'
+    },
+    bugContainer:{
+        width:'100%',
+        alignItems:'center',
+        display:'flex',
+        flexDirection:'row',
+        justifyContent: 'space-around',
+        marginTop: isDesktopOrLaptop? '0px':'50px',
     }
     
   };
@@ -117,7 +128,7 @@ const Home = () => {
       {isTabletOrMobile && showDrawer && (
         <Drawer dark={dark} handleDark={handleDark} />
       )}
-      {isDesktopOrLaptop &&  (
+      {  (
         <div style={styles.aboutContainer}>
             <div style={styles.aboutDescription} >
                 <div style={styles.aboutTitle}>
@@ -129,7 +140,7 @@ const Home = () => {
             </div>
             <div style={styles.aboutImageContainer} >
                 <div style={styles.imageStyle} >
-                <img src={ProfileImg} alt="Profile" width="400px"  />
+                <img src={ProfileImg} alt="Profile" width={isDesktopOrLaptop? "400px": "300px"}  />
                 </div>
                 <div style={styles.imageShadow}>
 
@@ -137,6 +148,14 @@ const Home = () => {
                 
             </div>
         </div>
+      )}
+      
+      { (
+          <div style={styles.bugContainer}>
+          {dark? <img src={DarkBug} alt="Bug" width={ isDesktopOrLaptop? "600px": "400px"}  />: 
+          <img src={Bug} alt="Bug" width={ isDesktopOrLaptop? "600px": "400px"}  />}
+          
+          </div>
       )}
     </div>
   );
