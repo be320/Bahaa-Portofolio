@@ -5,6 +5,8 @@ import DarkLogo from "../assets/dark-glasses.PNG";
 import ProfileImg from "../assets/profile.jpg";
 import DarkBug from "../assets/dark-bug.PNG";
 import Bug from "../assets/bug.PNG";
+import Contacts from "../assets/contacts.PNG";
+import DarkContacts from "../assets/dark-contacts.PNG";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
@@ -150,7 +152,16 @@ const Home = ({dark,switchTheme}) => {
       justifyContent: 'center',
       paddingBottom: '50px',
       gridTemplateColumns: isDesktopOrLaptop ? 'auto auto': 'auto',
-      gap: isDesktopOrLaptop ? '80px 80px': '20px 0px',
+      gap: isDesktopOrLaptop ? '80px 80px': '80px 0px',
+      marginBottom: '50px'
+    },
+    contactsContainer:{
+      width:'100%',
+      minHeight:'800px',
+      backgroundColor: dark? '#640dd4':'#d52121',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around'
     }
   };
 
@@ -201,7 +212,7 @@ const Home = ({dark,switchTheme}) => {
           <div style={styles.imageShadow}></div>
         </div>
       </div>
-      <div style={styles.bugContainer}>
+      <div style={styles.bugContainer} id="projects" >
         {dark ? (
           <img
             src={DarkBug}
@@ -217,7 +228,7 @@ const Home = ({dark,switchTheme}) => {
         )}
       </div>
       <div style={styles.separator} >
-          <div style={styles.projectsTitle} id="projects" >
+          <div style={styles.projectsTitle}  >
             My Projects
           </div>
           <div style={styles.projectsBody}  >
@@ -225,12 +236,30 @@ const Home = ({dark,switchTheme}) => {
           </div>
       </div>
       <div style={styles.projectsCollection} >
-          <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} />
-          <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} />
-          <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} />
-          <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop} />
-          <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop} />
-          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} title="Cinema Show Website" />
+          <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} title="Aiesec Website" />
+          <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} title="LCS Algorithm Website"  />
+          <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop}  title="Assembly Compiler & Simulator"  />
+          <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop}  title="FreeRTOS Traffic System" />
+          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="Embedded Door Lock Mobile App" />
+      </div>
+      <div style={styles.bugContainer} id="contact" >
+        {dark ? (
+          <img
+            src={DarkContacts}
+            alt="Contacts"
+            width={isDesktopOrLaptop ? "600px" : "400px"}
+          />
+        ) : (
+          <img
+            src={Contacts}
+            alt="Contacts"
+            width={isDesktopOrLaptop ? "600px" : "400px"}
+          />
+        )}
+      </div>
+      <div style={styles.contactsContainer} >
+
       </div>
     </div>
   );

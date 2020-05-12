@@ -28,7 +28,6 @@ export const contentReducer = (state = contentInitialState,action) => {
     {
         case SWITCH_THEME:
             return {
-                ...state,
                 dark: !state.dark
             }  
         default:

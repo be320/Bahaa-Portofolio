@@ -16,7 +16,8 @@ const Drawer = ({dark,handleDark,handleDrawer}) => {
             margin:'0px',
             fontWeight: 'bold',
             fontSize: '20px',
-            fontFamily: 'Comic Sans MS'
+            fontFamily: 'Comic Sans MS',
+            cursor: 'pointer'
         }
     }
 
