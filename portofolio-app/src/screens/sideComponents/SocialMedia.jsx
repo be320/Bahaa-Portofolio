@@ -7,13 +7,14 @@ const SocialMedia = ({ dark, isDesktopOrLaptop }) => {
   const styles = {
     socialContainer: {
       height: "25em",
-      width: "30em",
+      width: isDesktopOrLaptop? "30em": '20em',
       borderRadius: "10%",
       display: "flex",
       flexDirection: "column",
       color: "black",
       backgroundColor: dark ? "#52bdf1" : "#d52121",
-      marginTop: "50px"
+      marginTop: "50px",
+      marginLeft: isDesktopOrLaptop? '0px': '20px'
     },
     socialTitle: {
       fontSize: isDesktopOrLaptop ? "50px" : "40px",
@@ -27,9 +28,9 @@ const SocialMedia = ({ dark, isDesktopOrLaptop }) => {
       display: "grid",
       width: "100%",
       //minHeight: "550px",
-      justifyContent: "center",
-      gridTemplateColumns: isDesktopOrLaptop ? "auto auto auto" : "auto",
-      gap: isDesktopOrLaptop ? "80px 80px" : "0px 80px"
+      justifyContent:  "center",
+      gridTemplateColumns: isDesktopOrLaptop ? "auto auto auto" : "auto auto auto",
+      gap: isDesktopOrLaptop ? "80px 80px" : "0px 30px"
     },
     smItem: {
        borderRadius: '50%',

@@ -1,4 +1,13 @@
 import {combineReducers, createStore} from 'redux';
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+//Persist Config
+
+const persistConfig = {
+    key: 'root',
+    storage,
+  }
 
 
 //types.js
@@ -35,17 +44,25 @@ export const contentReducer = (state = contentInitialState,action) => {
     }
 }
 
-
-
 export const reducers = combineReducers({
     contentReducer
 });
 
+const persistedReducer = persistReducer(persistConfig, reducers)
+
 //store.js
 
-export function configureStore(initialState = {}) {
-    const store = createStore(reducers, initialState);
-    return store;
-  };
+// export function configureStore(initialState = {}) {
+//     const store = createStore(reducers, initialState);
+//     return store;
+//   };
   
-  export const store = configureStore();
+//   export const store = configureStore();
+
+let store = createStore(persistedReducer)
+let persistor = persistStore(store)
+
+export {
+   store,
+    persistor,
+  }

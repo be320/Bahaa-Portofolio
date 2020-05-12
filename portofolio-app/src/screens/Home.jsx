@@ -28,22 +28,17 @@ const Home = ({dark,switchTheme}) => {
   //Media Query Section
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
-  //const isBigScreen = useMediaQuery({ minDeviceWidth: 1824 })
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-  //const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
   const isPortrait = useMediaQuery({ orientation: "portrait" });
   const isLandscape = useMediaQuery({ orientation: "landscape" });
-  //const isRetina = useMediaQuery({ minResolution: '2dppx' })
 
   //States Section
 
   const [showDrawer, setShowDrawer] = useState(false);
-  const [MyLogo,setMyLogo] = useState(Logo);
 
   const handleDark = value => {
     switchTheme();
     console.log(dark)
-    setMyLogo(value? DarkLogo:Logo);
   };
 
   const handleDrawer = () => {
@@ -176,7 +171,7 @@ const Home = ({dark,switchTheme}) => {
       {isDesktopOrLaptop && (
         <div style={styles.header}>
         <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
-         <img src={MyLogo} alt="logo" width="200px" /> </a>
+         <img src={dark?DarkLogo:Logo} alt="logo" width="200px" /> </a>
           <Navbar dark={dark} switchTheme={switchTheme} />
           <ThemeButton dark={dark} handleDark={handleDark} />
         </div>
@@ -184,7 +179,7 @@ const Home = ({dark,switchTheme}) => {
       {isTabletOrMobile && (
         <div style={styles.header}>
         <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
-          <img src={MyLogo} alt="logo" width="110px" /> </a>
+          <img src={dark?DarkLogo:Logo} alt="logo" width="110px" /> </a>
           <div onClick={handleDrawer}>
             {showDrawer ? (
               <CloseIcon style={styles.drawerIcon} />
@@ -240,7 +235,9 @@ const Home = ({dark,switchTheme}) => {
           </div>
       </div>
       <div style={styles.projectsCollection} >
+      <a href="/project/1" style={{ textDecoration: "none" }}>
           <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} title="Cinema Show Website" dark={dark} />
+          </a>
           <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} title="Aiesec Website" dark={dark} />
           <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} title="LCS Algorithm Website" dark={dark}  />
           <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop}  title="Assembly Compiler & Simulator" dark={dark}  />
@@ -270,9 +267,10 @@ const Home = ({dark,switchTheme}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  dark: state.contentReducer.dark,
-})
+function mapStateToProps (state) {
+ console.log(state)
+  return { dark: state.contentReducer.dark }
+}
 
 const mapDispatchToProps = {
     switchTheme

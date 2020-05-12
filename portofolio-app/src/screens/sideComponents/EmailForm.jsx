@@ -6,7 +6,7 @@ const EmailForm = ({dark,isDesktopOrLaptop}) => {
 
         formContainer: {
             height:'25em',
-            width: isDesktopOrLaptop? '30em':'auto',
+            width: isDesktopOrLaptop? '30em':'20em',
             borderRadius:'10%',
             display: 'flex',
             flexDirection: 'column',
