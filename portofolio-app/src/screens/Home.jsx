@@ -17,8 +17,10 @@ import LCS from "../assets/lcs.png";
 import Assembly from "../assets/assembly.PNG";
 import RTOS from "../assets/rtos.PNG";
 import ESP from "../assets/esp.jpg";
+import { connect } from 'react-redux';
+import { switchTheme } from '../redux/redux';
 
-const Home = () => {
+const Home = ({dark,switchTheme}) => {
   //Media Query Section
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
@@ -31,12 +33,12 @@ const Home = () => {
 
   //States Section
 
-  const [dark, setDark] = useState(true);
   const [showDrawer, setShowDrawer] = useState(false);
   const [MyLogo,setMyLogo] = useState(Logo);
 
   const handleDark = value => {
-    setDark(value);
+    switchTheme();
+    console.log(dark)
     setMyLogo(value? DarkLogo:Logo);
   };
 
@@ -160,7 +162,7 @@ const Home = () => {
         <div style={styles.header}>
         <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
          <img src={MyLogo} alt="logo" width="200px" /> </a>
-          <Navbar dark={dark} />
+          <Navbar dark={dark} switchTheme={switchTheme} />
           <ThemeButton dark={dark} handleDark={handleDark} />
         </div>
       )}
@@ -234,4 +236,15 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = state => ({
+  dark: state.contentReducer.dark,
+})
+
+const mapDispatchToProps = {
+    switchTheme
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Home);

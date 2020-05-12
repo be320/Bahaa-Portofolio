@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ dark }) => {
+const Navbar = ({ dark , switchTheme}) => {
   const styles = {
     navbarContainer: {
       display: "flex",
