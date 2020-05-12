@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProjectCard = ({poster,title,isDesktopOrLaptop}) => {
+const ProjectCard = ({poster,title,isDesktopOrLaptop,dark}) => {
 
     const styles = {
 
@@ -16,14 +16,15 @@ const ProjectCard = ({poster,title,isDesktopOrLaptop}) => {
             width:isDesktopOrLaptop? '35em' : 'auto',
             height: isDesktopOrLaptop? '18em': '10em',
             borderRadius:'5%',
-            border: '3px solid gray',
+            border: '10px solid',
+            borderColor:dark ? "#52bdf1" : "#d52121"
         },
         projectTitleContainer:{
             backgroundColor: 'rgba(0,0,0,0.6)',
             width:isDesktopOrLaptop? 'auto' : 'auto',
             zIndex: 2,
             marginTop: isDesktopOrLaptop? '-100px': '-50px',
-            borderRadius:'10%',
+            borderRadius:'9%',
             height: isDesktopOrLaptop? '100px': '50px',
         },
         projectTitle:{

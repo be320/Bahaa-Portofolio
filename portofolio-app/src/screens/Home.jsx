@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Logo from "../assets/glasses.PNG";
-import DarkLogo from "../assets/dark-glasses.PNG";
+import DarkLogo from "../assets/blue-glasses.PNG";
 import ProfileImg from "../assets/profile.jpg";
-import DarkBug from "../assets/dark-bug.PNG";
+import DarkBug from "../assets/blue-bug.PNG";
 import Bug from "../assets/bug.PNG";
 import Contacts from "../assets/contacts.PNG";
-import DarkContacts from "../assets/dark-contacts.PNG";
+import DarkContacts from "../assets/blue-contacts.PNG";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import EmailForm from "./sideComponents/EmailForm";
@@ -85,7 +85,7 @@ const Home = ({dark,switchTheme}) => {
       justifyContent: 'center'
     },
     aboutTitle: {
-      color: dark ? "#640dd4" : "#d52121",
+      color: dark ? "#52bdf1" : "#d52121",
       fontSize: isDesktopOrLaptop ? "50px" : "30px",
       fontWeight: "bold",
       fontFamily: "Comic Sans MS"
@@ -103,7 +103,7 @@ const Home = ({dark,switchTheme}) => {
     imageShadow: {
       width: isDesktopOrLaptop ? "31em" : "22em",
       height: isDesktopOrLaptop ? "25em" : "18em",
-      backgroundColor: dark ? "#640dd4" : "#d52121",
+      backgroundColor: dark ? "#52bdf1" : "#d52121",
       marginLeft: isDesktopOrLaptop ? "10px" : "0px",
       marginTop: isDesktopOrLaptop ? "0px" : "150px"
     },
@@ -126,7 +126,7 @@ const Home = ({dark,switchTheme}) => {
       width:'100%',
       minHeight:'400px',
       marginBottom:'50px',
-      backgroundColor: dark? '#640dd4':'#d52121',
+      backgroundColor: dark? '#52bdf1':'#d52121',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
@@ -240,12 +240,12 @@ const Home = ({dark,switchTheme}) => {
           </div>
       </div>
       <div style={styles.projectsCollection} >
-          <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} title="Cinema Show Website" />
-          <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} title="Aiesec Website" />
-          <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} title="LCS Algorithm Website"  />
-          <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop}  title="Assembly Compiler & Simulator"  />
-          <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop}  title="FreeRTOS Traffic System" />
-          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="Embedded Door Lock Mobile App" />
+          <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} title="Cinema Show Website" dark={dark} />
+          <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} title="Aiesec Website" dark={dark} />
+          <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} title="LCS Algorithm Website" dark={dark}  />
+          <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop}  title="Assembly Compiler & Simulator" dark={dark}  />
+          <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop}  title="FreeRTOS Traffic System" dark={dark} />
+          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="Embedded Door Lock Mobile App" dark={dark} />
       </div>
       <div style={styles.bugContainer} id="contact" >
         {dark ? (

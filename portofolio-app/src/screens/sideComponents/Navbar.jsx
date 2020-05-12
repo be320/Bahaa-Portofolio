@@ -23,7 +23,7 @@ const Navbar = ({ dark , switchTheme}) => {
   };
 
   const hoverAction = e => {
-    e.target.style.backgroundColor = dark ? "#640dd4" : "#d52121";
+    e.target.style.backgroundColor = dark ? "#52bdf1" : "#d52121";
     e.target.style.color = dark ? "#191a1d" : "#fff";
   };
 
