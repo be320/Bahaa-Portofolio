@@ -28,8 +28,8 @@ const ProjectCard = ({poster,title,isDesktopOrLaptop}) => {
         },
         projectTitle:{
             padding: isDesktopOrLaptop? '0px 20px' : '0px 20px',
-            marginTop: isDesktopOrLaptop? '0px': '0px',
-            fontSize: '25px',
+            marginTop: isDesktopOrLaptop? '30px': '10px',
+            fontSize: isDesktopOrLaptop? '25px': '15px',
             fontWeight: 'bold',
             fontFamily:  'Comic Sans MS', 
             zIndex: 4,

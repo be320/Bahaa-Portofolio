@@ -4,7 +4,7 @@ const Drawer = ({dark,handleDark,handleDrawer}) => {
 
     const styles = {
         drawer:{
-            zIndex: 2,
+            zIndex: 3,
             position: 'absolute',
             width: '100%',
             backgroundColor: dark? '#640dd4':'#d52121',

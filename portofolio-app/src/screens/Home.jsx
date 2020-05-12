@@ -9,6 +9,8 @@ import Contacts from "../assets/contacts.PNG";
 import DarkContacts from "../assets/dark-contacts.PNG";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
+import EmailForm from "./sideComponents/EmailForm";
+import SocialMedia from "./sideComponents/SocialMedia";
 import ThemeButton from "./sideComponents/ThemeButton";
 import ProjectCard from './sideComponents/ProjectCard';
 import DehazeIcon from "@material-ui/icons/Dehaze";
@@ -127,7 +129,7 @@ const Home = ({dark,switchTheme}) => {
       backgroundColor: dark? '#640dd4':'#d52121',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
     },
     projectsTitle: {
       fontSize: isDesktopOrLaptop ? '50px': '40px',
@@ -143,8 +145,8 @@ const Home = ({dark,switchTheme}) => {
       fontFamily:  'Comic Sans MS', 
       color: 'white',
       textAlign: 'center',
-      padding: isDesktopOrLaptop ? ' 0px 300px 50px': ' 0px 50px 50px',
-      width: isDesktopOrLaptop ? '60%': 'auto',
+      padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
+      width: isDesktopOrLaptop ? '70%': 'auto',
       justifyContent: 'center'
     },
     projectsCollection:{
@@ -153,15 +155,17 @@ const Home = ({dark,switchTheme}) => {
       paddingBottom: '50px',
       gridTemplateColumns: isDesktopOrLaptop ? 'auto auto': 'auto',
       gap: isDesktopOrLaptop ? '80px 80px': '80px 0px',
-      marginBottom: '50px'
+      marginBottom: '50px',
+      padding: '20px'
     },
     contactsContainer:{
+      display: 'grid',
       width:'100%',
-      minHeight:'800px',
-      backgroundColor: dark? '#640dd4':'#d52121',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around'
+      minHeight:'550px',
+      // backgroundColor: dark? '#640dd4':'#d52121',
+      justifyContent: 'space-around',
+      gridTemplateColumns: isDesktopOrLaptop ? 'auto auto': 'auto',
+      gap: isDesktopOrLaptop ? '80px 80px': '80px 0px',
     }
   };
 
@@ -259,7 +263,8 @@ const Home = ({dark,switchTheme}) => {
         )}
       </div>
       <div style={styles.contactsContainer} >
-
+          <EmailForm  dark={dark} />
+          <SocialMedia dark={dark} />
       </div>
     </div>
   );
