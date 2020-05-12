@@ -165,7 +165,7 @@ const Home = ({dark,switchTheme}) => {
       // backgroundColor: dark? '#640dd4':'#d52121',
       justifyContent: 'space-around',
       gridTemplateColumns: isDesktopOrLaptop ? 'auto auto': 'auto',
-      gap: isDesktopOrLaptop ? '80px 80px': '80px 0px',
+      gap: isDesktopOrLaptop ? '80px 80px': '0px 80px',
     }
   };
 
@@ -263,8 +263,8 @@ const Home = ({dark,switchTheme}) => {
         )}
       </div>
       <div style={styles.contactsContainer} >
-          <EmailForm  dark={dark} />
-          <SocialMedia dark={dark} />
+          <EmailForm  dark={dark} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <SocialMedia dark={dark} isDesktopOrLaptop={isDesktopOrLaptop} />
       </div>
     </div>
   );

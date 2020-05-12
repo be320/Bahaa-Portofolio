@@ -1,12 +1,12 @@
 import React from 'react';
 
-const EmailForm = ({dark}) => {
+const EmailForm = ({dark,isDesktopOrLaptop}) => {
 
     const styles = {
 
         formContainer: {
             height:'25em',
-            width:'30em',
+            width: isDesktopOrLaptop? '30em':'auto',
             borderRadius:'10%',
             display: 'flex',
             flexDirection: 'column',
