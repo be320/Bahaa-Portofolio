@@ -8,8 +8,15 @@ import Bug from "../assets/bug.PNG";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
+import ProjectCard from './sideComponents/ProjectCard';
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import CloseIcon from "@material-ui/icons/Close";
+import CinemaShow from '../assets/cinemaShow.png';
+import Aiesec from "../assets/aiesec.JPG";
+import LCS from "../assets/lcs.png";
+import Assembly from "../assets/assembly.PNG";
+import RTOS from "../assets/rtos.PNG";
+import ESP from "../assets/esp.jpg";
 
 const Home = () => {
   //Media Query Section
@@ -24,7 +31,7 @@ const Home = () => {
 
   //States Section
 
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [showDrawer, setShowDrawer] = useState(false);
   const [MyLogo,setMyLogo] = useState(Logo);
 
@@ -54,7 +61,8 @@ const Home = () => {
       backgroundColor: dark ? "#191a1d" : "white"
     },
     drawerIcon: {
-      color: dark ? "white" : "#191a1d"
+      color: dark ? "white" : "#191a1d",
+      cursor: 'pointer'
     },
     aboutContainer: {
       display: "flex",
@@ -67,7 +75,8 @@ const Home = () => {
     aboutDescription: {
       display: "flex",
       flexDirection: "column",
-      maxWidth: isDesktopOrLaptop ? "50%" : "100%"
+      maxWidth: isDesktopOrLaptop ? "50%" : "100%",
+      justifyContent: 'center'
     },
     aboutTitle: {
       color: dark ? "#640dd4" : "#d52121",
@@ -111,15 +120,35 @@ const Home = () => {
       width:'100%',
       minHeight:'400px',
       marginBottom:'50px',
-      backgroundColor:'#d52121'
+      backgroundColor: dark? '#640dd4':'#d52121',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around'
     },
     projectsTitle: {
-      fontSize: '50px',
+      fontSize: isDesktopOrLaptop ? '50px': '40px',
       fontWeight: 'bold',
       fontFamily:  'Comic Sans MS', 
       color: 'white',
       textAlign: 'center',
       padding: '50px'
+    },
+    projectsBody:{
+      fontSize: isDesktopOrLaptop ? '30px': '20px',
+      fontWeight: 'bold',
+      fontFamily:  'Comic Sans MS', 
+      color: 'white',
+      textAlign: 'center',
+      padding: isDesktopOrLaptop ? ' 0px 300px 50px': ' 0px 50px 50px',
+      width: isDesktopOrLaptop ? '60%': 'auto',
+      justifyContent: 'center'
+    },
+    projectsCollection:{
+      display: 'grid',
+      justifyContent: 'center',
+      paddingBottom: '50px',
+      gridTemplateColumns: isDesktopOrLaptop ? 'auto auto': 'auto',
+      gap: isDesktopOrLaptop ? '80px 80px': '20px 0px',
     }
   };
 
@@ -129,14 +158,16 @@ const Home = () => {
     <div style={styles.container}>
       {isDesktopOrLaptop && (
         <div style={styles.header}>
-          <img src={MyLogo} alt="logo" width="200px" />
+        <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
+         <img src={MyLogo} alt="logo" width="200px" /> </a>
           <Navbar dark={dark} />
           <ThemeButton dark={dark} handleDark={handleDark} />
         </div>
       )}
       {isTabletOrMobile && (
         <div style={styles.header}>
-          <img src={MyLogo} alt="logo" width="110px" />
+        <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
+          <img src={MyLogo} alt="logo" width="110px" /> </a>
           <div onClick={handleDrawer}>
             {showDrawer ? (
               <CloseIcon style={styles.drawerIcon} />
@@ -183,13 +214,21 @@ const Home = () => {
           />
         )}
       </div>
-      <div style={styles.separator}>
-          <div style={styles.projectsTitle}>
+      <div style={styles.separator} >
+          <div style={styles.projectsTitle} id="projects" >
             My Projects
           </div>
-          <div style={styles.projectsTitle}>
-            My Projects
+          <div style={styles.projectsBody}  >
+            This is a mini collection for my Projects , it is a mix between Computer Engineering Projects and Web Development Projects.
           </div>
+      </div>
+      <div style={styles.projectsCollection} >
+          <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop} />
+          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop} />
       </div>
     </div>
   );

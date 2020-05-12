@@ -34,13 +34,13 @@ const Navbar = ({ dark }) => {
 
   return (
     <div style={styles.navbarContainer}>
-      <a href="#about" style={{ textDecoration: "none" }}>
+      <a href="/" style={{ textDecoration: "none" }}>
         <div
           style={styles.navbarItem}
           onMouseEnter={hoverAction}
           onMouseLeave={leaveAction}
         >
-          About
+          Home
         </div>
       </a>
       <a href="#projects" style={{ textDecoration: "none" }}>
