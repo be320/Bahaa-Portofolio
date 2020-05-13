@@ -17,6 +17,24 @@ import Cinema3 from "../assets/cinema3.png";
 import Cinema4 from "../assets/cinema4.png";
 import Cinema5 from "../assets/cinema5.png";
 import Cinema6 from "../assets/cinema6.png";
+import Assembly1 from "../assets/assembly.PNG";
+import Assembly2 from "../assets/assembly2.PNG";
+import Assembly3 from "../assets/assembly3.PNG";
+import Assembly4 from "../assets/assembly 4.PNG";
+import LCS1 from "../assets/lcs1.PNG";
+import LCS2 from "../assets/lcs2.PNG";
+import LCS3 from "../assets/lcs3.PNG";
+import LCS4 from "../assets/lcs4.PNG";
+import RTOS1 from "../assets/rtos.PNG";
+import RTOS2 from "../assets/rtos2.PNG";
+import RTOS3 from "../assets/rtos3.png";
+import RTOS4 from "../assets/rtos4.jpg";
+import ESP1 from "../assets/esp.jpg";
+import ESP2 from "../assets/esp2.PNG";
+import ESP3 from "../assets/esp3.PNG";
+import ESP4 from "../assets/esp4.jpg";
+import ESP5 from "../assets/esp5.PNG";
+import ESP6 from "../assets/esp6.jpg";
 import Drawer from "./sideComponents/Drawer";
 import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
@@ -171,28 +189,28 @@ const Project = ({ dark, switchTheme, match }) => {
   const lcs = {
     title: "LCS Algorithm Website",
     repo: "Longest-Common-String-Algorithm",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    images: [LCS1, LCS2, LCS3, LCS4],
     description: ""
   };
 
   const assembly = {
     title: "Assembly Compiler & Simulator",
     repo: "Mips-Code-Compiler-and-Simulator",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    images: [Assembly1, Assembly2, Assembly3, Assembly4],
     description: ""
   };
 
   const rtos = {
     title: "FreeRTOS Traffic System",
     repo: "Mulit-junction-light-control-system",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    images: [RTOS1, RTOS2, RTOS3, RTOS4],
     description: ""
   };
 
   const esp = {
     title: "Embedded Door Lock Mobile App",
     repo: "Door-Lock-App",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    images: [ESP1, ESP2, ESP3, ESP4, ESP5,ESP6],
     description: ""
   };
 
