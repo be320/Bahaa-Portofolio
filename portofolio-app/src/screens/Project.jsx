@@ -41,6 +41,8 @@ import ThemeButton from "./sideComponents/ThemeButton";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import CloseIcon from "@material-ui/icons/Close";
 import GitHubIcon from '@material-ui/icons/GitHub';
+import { rotateIn ,swing, zoomIn } from "react-animations";
+import { StyleSheet, css } from "aphrodite";
 const myFont = require('typeface-montserrat');
 
 const Project = ({ dark, switchTheme, match }) => {
@@ -113,7 +115,7 @@ const Project = ({ dark, switchTheme, match }) => {
       borderColor: dark ? "#52bdf1" : "#d52121"
     },
     separator:{
-        width:'100%',
+        width:'auto',
         minHeight:'400px',
         backgroundColor: dark? '#52bdf1':'#d52121',
         display: 'flex',
@@ -121,11 +123,11 @@ const Project = ({ dark, switchTheme, match }) => {
         justifyContent: 'space-around',
       },
       descriptionTitle: {
-        fontSize: isDesktopOrLaptop ? '50px': '40px',
+        fontSize: isDesktopOrLaptop ? '50px': '30px',
         fontWeight: 'bold',
         fontFamily:  myFont, 
         color: dark ? "#191a1d" : "#fff",
-        textAlign: 'center',
+        textAlign: isDesktopOrLaptop ?  'center' : 'left',
         padding: '50px'
       },
       descriptionBody:{
@@ -145,7 +147,7 @@ const Project = ({ dark, switchTheme, match }) => {
       gridTemplateColumns: isDesktopOrLaptop
         ? "auto auto"
         : "auto auto",
-      gap: isDesktopOrLaptop ? "80px 80px" : "80px 0px",
+      gap: isDesktopOrLaptop ? "80px 80px" : "0px 0px",
       marginBottom: "50px",
       padding: "20px",
       alignItems: "center",
@@ -171,48 +173,78 @@ const Project = ({ dark, switchTheme, match }) => {
       }
   };
 
+  const animationStyles = StyleSheet.create({
+    shake: {
+      ":hover": {
+        animationName: rotateIn,
+        animationDuration: "1s"
+      },
+      borderRadius: '50%',
+        backgroundColor: dark ? '#191a1d':'#fff',
+        padding: '10px',
+        fontSize: '50px',
+        color: dark? '#52bdf1' : '#d52121',
+        cursor: 'pointer'
+    },
+    logoSwing: {
+      ":hover": {
+        animationName: swing,
+        animationDuration: "1s"
+      },
+    },
+    zoom:{
+      borderRadius: "50%",
+      backgroundColor: dark ? "#191a1d" : "#fff",
+      padding: "10px",
+      fontSize: isDesktopOrLaptop ? "50px": '30px',
+      color: dark ? "#52bdf1" : "#d52121",
+      cursor: "pointer"
+    }
+  });
+
+
   // dummy data instead of Database
 
   const cinema = {
     title: "Cinema Show Website",
     repo: "Cinema-Show",
     images: [Cinema1, Cinema2, Cinema3, Cinema4, Cinema5, Cinema6],
-    description: "Cinema Show website is a Movie and Series rating and review website. it is integrated with TheMovieDB API. The user can interact by liking movie or adding his/her own review, also the user can search for specific movie and watch the movie trailer.",
+    description: "Cinema Show website is a Movie and Series rating and review website. it is integrated with TheMovieDB API. The user can interact by liking movie or adding his/her own review, also the user can search for specific movie and watch the movie trailer. Project implemented by Reactjs and Nodejs",
   };
 
   const aiesec = {
     title: "Aiesec Website",
     repo: "AiesecASUIMFE",
     images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
-    description: ""
+    description: "Aiesec website is a website developed for Aiesec Student Activity in Ain Shams University . I was in the Frontend team , we worked with Reactjs and Redux, and the Backend team implemented their work by Asp.net"
   };
 
   const lcs = {
     title: "LCS Algorithm Website",
     repo: "Longest-Common-String-Algorithm",
     images: [LCS1, LCS2, LCS3, LCS4],
-    description: ""
+    description: "This website is an implementation for Longest Common Subsequence Algorithm , which is an algorithm that works with Dynamic Programming Approach. I impleneted this project for Bioinformatics course as the LCS Algorithm is used to compare two strings and find the longest common subsequence between them and it is used in DNA matching. "
   };
 
   const assembly = {
     title: "Assembly Compiler & Simulator",
     repo: "Mips-Code-Compiler-and-Simulator",
     images: [Assembly1, Assembly2, Assembly3, Assembly4],
-    description: ""
+    description: "Mips Code Compiler and Simulator , I implented this project for Computer Architecture Course developed in java to create Desktop app that works as a compiler and simulator for assembly code that works on MIPS Processor, it is one of the most complicated projects I have done as it works with the logic of registers and logic of assembly operations. "
   };
 
   const rtos = {
     title: "FreeRTOS Traffic System",
     repo: "Mulit-junction-light-control-system",
     images: [RTOS1, RTOS2, RTOS3, RTOS4],
-    description: ""
+    description: "Traffic Management System is an Embedded system developed in C and FreeRTOS Library and implemented on TivaC Board. It works on managing mulijunction road with pedestrian who want to cross the road and also train that pass by one of these junctions."
   };
 
   const esp = {
     title: "IOT Door Lock Mobile App",
     repo: "Door-Lock-App",
     images: [ESP1, ESP2, ESP3, ESP4, ESP5,ESP6],
-    description: ""
+    description: "IOT Door Lock Mobile App is my best project till now as it is an integration between mobile development and embedded systems . I developed the Mobile App in React Native and integrated it with Realtime Database on firebase and on the other side I used arduino and to work with the door lock and I used ESP8266 Module to connect to the internet so that I can read data from firebase , so when the User enters valid password , the app sends value to firebase that the user is confirmed and then the ESP8266 communicates with the arduino that opens the Doorlock."
   };
 
   //States Section
@@ -293,7 +325,7 @@ const Project = ({ dark, switchTheme, match }) => {
       {isDesktopOrLaptop && (
         <div style={styles.header}>
           <a href="/" style={{ textDecoration: "none", cursor: "pointer" }}>
-            <img src={dark ? DarkLogo : Logo} alt="logo" width="200px" />{" "}
+            <img src={dark ? DarkLogo : Logo} alt="logo" width="200px" className={css(animationStyles.logoSwing)} />
           </a>
           <Navbar dark={dark} switchTheme={switchTheme} />
           <ThemeButton dark={dark} handleDark={handleDark} />
@@ -322,7 +354,7 @@ const Project = ({ dark, switchTheme, match }) => {
       )}
       <div style={styles.projectTitle}>{project.title}</div>
       <div style={styles.imagesContainer}>
-        <ArrowBackIosIcon fontSize="inherit" style={styles.arrow} onClick={backward} />
+        <ArrowBackIosIcon fontSize="inherit" className={css(animationStyles.zoom)} onClick={backward} />
         <div style={styles.imagePresenter}>
           <img
             src={project.images[index]}
@@ -330,7 +362,7 @@ const Project = ({ dark, switchTheme, match }) => {
             style={styles.projectPoster}
           />
         </div>
-        <ArrowForwardIosIcon fontSize="inherit" style={styles.arrow} onClick={forward} />
+        <ArrowForwardIosIcon fontSize="inherit" className={css(animationStyles.zoom)} onClick={forward} />
       </div>
      
       <div style={styles.separator} >
@@ -339,7 +371,7 @@ const Project = ({ dark, switchTheme, match }) => {
             Brief Description
           </div>
     <a href={"https://github.com/be320/"+project.repo} style={{ textDecoration: "none" }}>
-      <GitHubIcon style={styles.link} fontSize='inherit' />
+      <GitHubIcon className={css(animationStyles.shake)} fontSize='inherit' />
       </a>
       </div>
           

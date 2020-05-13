@@ -1,4 +1,6 @@
 import React from "react";
+import { headShake } from "react-animations";
+import { StyleSheet, css } from "aphrodite";
 const myFont = require('typeface-montserrat');
 
 const Navbar = ({ dark , switchTheme}) => {
@@ -24,6 +26,25 @@ const Navbar = ({ dark , switchTheme}) => {
     }
   };
 
+  const animationStyles = StyleSheet.create({
+    shake: {
+      ":hover": {
+        animationName: headShake,
+        animationDuration: "1s",
+        color: dark? '#52bdf1' : '#d52121',
+      },
+      fontSize: "30px",
+      fontWeight: "bold",
+      fontFamily: myFont,
+      cursor: "pointer",
+      borderRadius: "20px",
+      padding: "20px",
+      alignSelf: "center",
+      color: dark ? "white" : "#191a1d",
+      backgroundColor: dark ? "#09090a" : "#f7f7f7"
+    },
+  });
+
   const hoverAction = e => {
     e.target.style.backgroundColor = dark ? "#52bdf1" : "#d52121";
     e.target.style.color = dark ? "#191a1d" : "#fff";
@@ -38,7 +59,7 @@ const Navbar = ({ dark , switchTheme}) => {
     <div style={styles.navbarContainer}>
       <a href="/" style={{ textDecoration: "none" }}>
         <div
-          style={styles.navbarItem}
+          className={css(animationStyles.shake)}
           onMouseEnter={hoverAction}
           onMouseLeave={leaveAction}
         >
@@ -47,7 +68,7 @@ const Navbar = ({ dark , switchTheme}) => {
       </a>
       <a href="/#projects" style={{ textDecoration: "none" }}>
       <div
-        style={styles.navbarItem}
+       className={css(animationStyles.shake)}
         onMouseEnter={hoverAction}
         onMouseLeave={leaveAction}
       >
@@ -56,7 +77,7 @@ const Navbar = ({ dark , switchTheme}) => {
       </a>
       <a href="/#contact" style={{ textDecoration: "none" }}>
       <div
-        style={styles.navbarItem}
+        className={css(animationStyles.shake)}
         onMouseEnter={hoverAction}
         onMouseLeave={leaveAction}
       >

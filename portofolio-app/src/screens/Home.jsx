@@ -23,6 +23,8 @@ import RTOS from "../assets/rtos.PNG";
 import ESP from "../assets/esp.jpg";
 import { connect } from 'react-redux';
 import { switchTheme } from '../redux/redux';
+import { rotateIn ,swing } from "react-animations";
+import { StyleSheet, css } from "aphrodite";
 const myFont = require('typeface-montserrat');
 
 const Home = ({dark,switchTheme}) => {
@@ -110,11 +112,11 @@ const Home = ({dark,switchTheme}) => {
       marginLeft: isDesktopOrLaptop ? "7px" : "-4px"
     },
     bugContainer: {
-      width: "100%",
+      width: "auto",
       alignItems: "center",
       display: "flex",
       flexDirection: "row",
-      justifyContent: "space-around",
+      justifyContent: "center",
       marginTop: isDesktopOrLaptop ? "0px" : "50px"
     },
     separator:{
@@ -130,7 +132,7 @@ const Home = ({dark,switchTheme}) => {
       fontSize: isDesktopOrLaptop ? '50px': '40px',
       fontWeight: 'bold',
       fontFamily:  myFont, 
-      color: 'white',
+      color: dark? "#191a1d" : 'white',
       textAlign: 'center',
       padding: '50px'
     },
@@ -138,7 +140,7 @@ const Home = ({dark,switchTheme}) => {
       fontSize: isDesktopOrLaptop ? '30px': '20px',
       fontWeight: 'bold',
       fontFamily:  myFont, 
-      color: 'white',
+      color: dark? "#191a1d" : 'white',
       textAlign: 'center',
       padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
       width: isDesktopOrLaptop ? '70%': 'auto',
@@ -164,6 +166,23 @@ const Home = ({dark,switchTheme}) => {
     }
   };
 
+  const animationStyles = StyleSheet.create({
+    shake: {
+      ":hover": {
+        animationName: rotateIn,
+        animationDuration: "1s"
+      },
+      color: dark ? "white" : "#191a1d",
+      cursor: 'pointer'
+    },
+    logoSwing: {
+      ":hover": {
+        animationName: swing,
+        animationDuration: "1s"
+      },
+    }
+  });
+
   // rendering section
 
   return (
@@ -171,7 +190,7 @@ const Home = ({dark,switchTheme}) => {
       {isDesktopOrLaptop && (
         <div style={styles.header}>
         <a href="/" style={{ textDecoration: "none", cursor: 'pointer' }}>
-         <img src={dark?DarkLogo:Logo} alt="logo" width="200px" /> </a>
+         <img src={dark?DarkLogo:Logo} alt="logo" width="200px" className={css(animationStyles.logoSwing)} /> </a>
           <Navbar dark={dark} switchTheme={switchTheme} />
           <ThemeButton dark={dark} handleDark={handleDark} />
         </div>
@@ -182,9 +201,9 @@ const Home = ({dark,switchTheme}) => {
           <img src={dark?DarkLogo:Logo} alt="logo" width="110px" /> </a>
           <div onClick={handleDrawer}>
             {showDrawer ? (
-              <CloseIcon style={styles.drawerIcon} />
+              <CloseIcon className={css(animationStyles.shake)} />
             ) : (
-              <DehazeIcon style={styles.drawerIcon} />
+              <DehazeIcon className={css(animationStyles.shake)} />
             )}
           </div>
         </div>
@@ -216,7 +235,7 @@ const Home = ({dark,switchTheme}) => {
           <img
             src={DarkBug}
             alt="Bug"
-            width={isDesktopOrLaptop ? "600px" : "400px"}
+            width={isDesktopOrLaptop ? "600px" : "350px"}
           />
         ) : (
           <img

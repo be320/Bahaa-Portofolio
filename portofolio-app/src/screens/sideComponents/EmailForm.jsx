@@ -28,7 +28,7 @@ const EmailForm = ({dark,isDesktopOrLaptop}) => {
             outline: 'none',
             placeholderTextColor : "white",
             alignSelf:'center',
-            marginLeft: '30px'
+            marginLeft: '25px'
         },
         txtSubject: {
             border: '2px solid '+(dark? '#191a1d':'white'),
