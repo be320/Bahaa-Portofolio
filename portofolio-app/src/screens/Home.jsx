@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import Logo from "../assets/glasses.PNG";
-import DarkLogo from "../assets/blue-glasses.PNG";
+import Logo from "../assets/gray-glasses.PNG";
+import DarkLogo from "../assets/dark-glasses.PNG";
 import ProfileImg from "../assets/profile.jpg";
 import DarkBug from "../assets/blue-bug.PNG";
 import Bug from "../assets/bug.PNG";
@@ -54,7 +54,8 @@ const Home = ({dark,switchTheme}) => {
       flexDirection: "row",
       justifyContent: "space-between",
       height: "20%",
-      position: "relative"
+      position: "relative",
+      backgroundColor: dark ? "#09090a" : "#f7f7f7"
     },
     container: {
       backgroundColor: dark ? "#191a1d" : "white"
@@ -257,13 +258,13 @@ const Home = ({dark,switchTheme}) => {
           <img
             src={DarkContacts}
             alt="Contacts"
-            width={isDesktopOrLaptop ? "600px" : "400px"}
+            width={isDesktopOrLaptop ? "600px" : "350px"}
           />
         ) : (
           <img
             src={Contacts}
             alt="Contacts"
-            width={isDesktopOrLaptop ? "600px" : "400px"}
+            width={isDesktopOrLaptop ? "600px" : "350px"}
           />
         )}
       </div>

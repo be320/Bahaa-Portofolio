@@ -8,6 +8,7 @@ const Navbar = ({ dark , switchTheme}) => {
       justifyContent: "space-between",
       width: "40%",
       height: "20%",
+      backgroundColor: dark ? "#09090a" : "#f7f7f7"
     },
     navbarItem: {
       fontSize: "20px",
@@ -18,7 +19,7 @@ const Navbar = ({ dark , switchTheme}) => {
       padding: "20px",
       alignSelf: "center",
       color: dark ? "white" : "#191a1d",
-      backgroundColor: dark ? "#191a1d" : "white"
+      backgroundColor: dark ? "#09090a" : "#f7f7f7"
     }
   };
 
@@ -28,7 +29,7 @@ const Navbar = ({ dark , switchTheme}) => {
   };
 
   const leaveAction = e => {
-    e.target.style.backgroundColor = dark ? "#191a1d" : "white";
+    e.target.style.backgroundColor = dark ? "#09090a" : "#f7f7f7"
     e.target.style.color = dark ? "white" : "#191a1d";
   };
 

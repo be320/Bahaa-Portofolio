@@ -4,8 +4,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { switchTheme } from "../redux/redux";
-import Logo from "../assets/glasses.PNG";
-import DarkLogo from "../assets/blue-glasses.PNG";
+import Logo from "../assets/gray-glasses.PNG";
+import DarkLogo from "../assets/dark-glasses.PNG";
 import Aiesec1 from "../assets/aiesec1.JPG";
 import Aiesec2 from "../assets/aiesec2.JPG";
 import Aiesec3 from "../assets/aiesec3.JPG";
@@ -22,6 +22,7 @@ import Navbar from "./sideComponents/Navbar";
 import ThemeButton from "./sideComponents/ThemeButton";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import CloseIcon from "@material-ui/icons/Close";
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const Project = ({ dark, switchTheme, match }) => {
   //Media Query Section
@@ -36,10 +37,11 @@ const Project = ({ dark, switchTheme, match }) => {
       flexDirection: "row",
       justifyContent: "space-between",
       height: "20%",
-      position: "relative"
+      position: "relative",
+      backgroundColor: dark ? "#09090a" : "#f7f7f7"
     },
     container: {
-      backgroundColor: dark ? "#191a1d" : "white"
+      backgroundColor: dark ? "#191a1d" : "white",
     },
     drawerIcon: {
       color: dark ? "white" : "#191a1d",
@@ -51,7 +53,8 @@ const Project = ({ dark, switchTheme, match }) => {
       fontFamily: "Comic Sans MS",
       color: dark ? "#52bdf1" : "#d52121",
       textAlign: "center",
-      padding: "0px"
+      padding: "0px",
+      marginTop: '30px'
     },
     imagesContainer: {
       display: "grid",
@@ -64,11 +67,11 @@ const Project = ({ dark, switchTheme, match }) => {
       marginBottom: "50px",
       padding: "20px",
       alignItems: "center",
-      marginTop: "50px"
+      marginTop: "10px"
     },
     imagePresenter: {
-      height: "25em",
-      width: isDesktopOrLaptop ? "45em" : "20em",
+      height:isDesktopOrLaptop ? "25em": '10em',
+      width: isDesktopOrLaptop ? "45em" : "18em",
       borderRadius: "10%",
       display: "flex",
       flexDirection: "column",
@@ -79,7 +82,7 @@ const Project = ({ dark, switchTheme, match }) => {
       borderRadius: "50%",
       backgroundColor: dark ? "#191a1d" : "#fff",
       padding: "10px",
-      fontSize: "50px",
+      fontSize: isDesktopOrLaptop ? "50px": '30px',
       color: dark ? "#52bdf1" : "#d52121",
       cursor: "pointer"
     },
@@ -89,39 +92,108 @@ const Project = ({ dark, switchTheme, match }) => {
       borderRadius: "5%",
       border: "10px solid",
       borderColor: dark ? "#52bdf1" : "#d52121"
-    }
+    },
+    separator:{
+        width:'100%',
+        minHeight:'400px',
+        backgroundColor: dark? '#52bdf1':'#d52121',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+      },
+      descriptionTitle: {
+        fontSize: isDesktopOrLaptop ? '50px': '40px',
+        fontWeight: 'bold',
+        fontFamily:  'Comic Sans MS', 
+        color: dark ? "#191a1d" : "#fff",
+        textAlign: 'center',
+        padding: '50px'
+      },
+      descriptionBody:{
+        fontSize: isDesktopOrLaptop ? '30px': '20px',
+        fontWeight: 'bold',
+        fontFamily:  'Comic Sans MS', 
+        color: dark ? "#191a1d" : "#fff",
+        textAlign: 'center',
+        padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
+        width: isDesktopOrLaptop ? '70%': 'auto',
+        justifyContent: 'center'
+      },
+      linkContainer:{
+        display: "grid",
+      justifyContent: "center",
+      paddingBottom: "50px",
+      gridTemplateColumns: isDesktopOrLaptop
+        ? "auto auto"
+        : "auto auto",
+      gap: isDesktopOrLaptop ? "80px 80px" : "80px 0px",
+      marginBottom: "50px",
+      padding: "20px",
+      alignItems: "center",
+      marginTop: "10px"
+      },
+      linkLabel:{
+        fontSize: isDesktopOrLaptop ? '30px': '20px',
+        fontWeight: 'bold',
+        fontFamily:  'Comic Sans MS', 
+        color: dark? '#52bdf1':'#d52121',
+        textAlign: 'center',
+        padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
+        width: isDesktopOrLaptop ? '70%': 'auto',
+        justifyContent: 'center'
+      },
+      link:{
+        borderRadius: '50%',
+        backgroundColor: dark ? '#191a1d':'#fff',
+        padding: '10px',
+        fontSize: '50px',
+        color: dark? '#52bdf1' : '#d52121',
+        cursor: 'pointer'
+      }
   };
 
   // dummy data instead of Database
 
   const cinema = {
     title: "Cinema Show Website",
-    images: [Cinema1, Cinema2, Cinema3, Cinema4, Cinema5, Cinema6]
+    repo: "Cinema-Show",
+    images: [Cinema1, Cinema2, Cinema3, Cinema4, Cinema5, Cinema6],
+    description: "Cinema Show website is a Movie and Series rating and review website. it is integrated with TheMovieDB API. The user can interact by liking movie or adding his/her own review, also the user can search for specific movie and watch the movie trailer.",
   };
 
   const aiesec = {
     title: "Aiesec Website",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5]
+    repo: "AiesecASUIMFE",
+    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    description: ""
   };
 
   const lcs = {
     title: "LCS Algorithm Website",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5]
+    repo: "Longest-Common-String-Algorithm",
+    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    description: ""
   };
 
   const assembly = {
     title: "Assembly Compiler & Simulator",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5]
+    repo: "Mips-Code-Compiler-and-Simulator",
+    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    description: ""
   };
 
   const rtos = {
     title: "FreeRTOS Traffic System",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5]
+    repo: "Mulit-junction-light-control-system",
+    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    description: ""
   };
 
   const esp = {
     title: "Embedded Door Lock Mobile App",
-    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5]
+    repo: "Door-Lock-App",
+    images: [Aiesec1, Aiesec2, Aiesec3, Aiesec4, Aiesec5],
+    description: ""
   };
 
   //States Section
@@ -240,6 +312,21 @@ const Project = ({ dark, switchTheme, match }) => {
           />
         </div>
         <ArrowForwardIosIcon fontSize="inherit" style={styles.arrow} onClick={forward} />
+      </div>
+     
+      <div style={styles.separator} >
+      <div style={styles.linkContainer}>
+      <div style={styles.descriptionTitle}  >
+            Brief Description
+          </div>
+    <a href={"https://github.com/be320/"+project.repo} style={{ textDecoration: "none" }}>
+      <GitHubIcon style={styles.link} fontSize='inherit' />
+      </a>
+      </div>
+          
+          <div style={styles.descriptionBody}  >
+            {project.description}
+          </div>
       </div>
     </div>
   );
