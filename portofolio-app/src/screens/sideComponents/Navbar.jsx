@@ -43,7 +43,7 @@ const Navbar = ({ dark , switchTheme}) => {
           Home
         </div>
       </a>
-      <a href="#projects" style={{ textDecoration: "none" }}>
+      <a href="/#projects" style={{ textDecoration: "none" }}>
       <div
         style={styles.navbarItem}
         onMouseEnter={hoverAction}
@@ -52,7 +52,7 @@ const Navbar = ({ dark , switchTheme}) => {
         Projects
       </div>
       </a>
-      <a href="#contact" style={{ textDecoration: "none" }}>
+      <a href="/#contact" style={{ textDecoration: "none" }}>
       <div
         style={styles.navbarItem}
         onMouseEnter={hoverAction}

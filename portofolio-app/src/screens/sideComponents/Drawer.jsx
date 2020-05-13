@@ -32,13 +32,13 @@ const Drawer = ({dark,handleDark,handleDrawer}) => {
 
     return(
         <div style={styles.drawer}>
-        <a href="#about" style={{ textDecoration: "none" }}>
+        <a href="/#about" style={{ textDecoration: "none" }}>
         <p style={styles.drawerItem} onClick={closeDrawer} >About</p>
         </a>
-        <a href="#projects" style={{ textDecoration: "none" }}>
+        <a href="/#projects" style={{ textDecoration: "none" }}>
         <p style={styles.drawerItem} onClick={closeDrawer} >Projects</p>
         </a>
-        <a href="#contact" style={{ textDecoration: "none" }}>
+        <a href="/#contact" style={{ textDecoration: "none" }}>
         <p style={styles.drawerItem} onClick={closeDrawer} >Contact</p>
         </a>
         {dark ? <p style={styles.drawerItem} onClick={themeConverter} >Light Theme</p> :

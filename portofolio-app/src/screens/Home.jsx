@@ -29,8 +29,6 @@ const Home = ({dark,switchTheme}) => {
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-  const isPortrait = useMediaQuery({ orientation: "portrait" });
-  const isLandscape = useMediaQuery({ orientation: "landscape" });
 
   //States Section
 
@@ -235,14 +233,24 @@ const Home = ({dark,switchTheme}) => {
           </div>
       </div>
       <div style={styles.projectsCollection} >
-      <a href="/project/1" style={{ textDecoration: "none" }}>
+          <a href="/project/1" style={{ textDecoration: "none" }}>
           <ProjectCard poster={CinemaShow} isDesktopOrLaptop={isDesktopOrLaptop} title="Cinema Show Website" dark={dark} />
           </a>
+          <a href="/project/2" style={{ textDecoration: "none" }}>
           <ProjectCard poster={Aiesec} isDesktopOrLaptop={isDesktopOrLaptop} title="Aiesec Website" dark={dark} />
+          </a>
+          <a href="/project/3" style={{ textDecoration: "none" }}>
           <ProjectCard poster={LCS} isDesktopOrLaptop={isDesktopOrLaptop} title="LCS Algorithm Website" dark={dark}  />
+          </a>
+          <a href="/project/4" style={{ textDecoration: "none" }}>
           <ProjectCard poster={Assembly} isDesktopOrLaptop={isDesktopOrLaptop}  title="Assembly Compiler & Simulator" dark={dark}  />
+          </a>
+          <a href="/project/5" style={{ textDecoration: "none" }}>
           <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop}  title="FreeRTOS Traffic System" dark={dark} />
+          </a>
+          <a href="/project/6" style={{ textDecoration: "none" }}>
           <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="Embedded Door Lock Mobile App" dark={dark} />
+          </a>
       </div>
       <div style={styles.bugContainer} id="contact" >
         {dark ? (
