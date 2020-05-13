@@ -1,4 +1,5 @@
 import React from 'react';
+const myFont = require('typeface-montserrat');
 
 const ThemeButton = ({dark,handleDark}) => {
 
@@ -10,7 +11,7 @@ const ThemeButton = ({dark,handleDark}) => {
             padding: '0px 20px',
             fontSize: '20px',
             fontWeight: 'bold',
-            fontFamily:  'Comic Sans MS', 
+            fontFamily:  myFont, 
             cursor: 'pointer',
             maxHeight:'70px'
         }

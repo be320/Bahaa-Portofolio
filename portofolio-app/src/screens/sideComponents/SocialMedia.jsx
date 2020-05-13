@@ -2,24 +2,26 @@ import React from "react";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+const myFont = require('typeface-montserrat');
 
 const SocialMedia = ({ dark, isDesktopOrLaptop }) => {
   const styles = {
     socialContainer: {
-      height: "25em",
+      height: '25em',
       width: isDesktopOrLaptop? "30em": '20em',
       borderRadius: "10%",
       display: "flex",
       flexDirection: "column",
       color: "black",
       backgroundColor: dark ? "#52bdf1" : "#d52121",
-      marginTop: "50px",
-      marginLeft: isDesktopOrLaptop? '0px': '20px'
+      marginTop: "70px",
+      marginLeft: isDesktopOrLaptop? '0px': '20px',
+      marginBottom: '10px'
     },
     socialTitle: {
       fontSize: isDesktopOrLaptop ? "50px" : "40px",
       fontWeight: "bold",
-      fontFamily: "Comic Sans MS",
+      fontFamily: myFont,
       color: "white",
       textAlign: "center",
       padding: "50px"
@@ -27,7 +29,6 @@ const SocialMedia = ({ dark, isDesktopOrLaptop }) => {
     socialBody: {
       display: "grid",
       width: "100%",
-      //minHeight: "550px",
       justifyContent:  "center",
       gridTemplateColumns: isDesktopOrLaptop ? "auto auto auto" : "auto auto auto",
       gap: isDesktopOrLaptop ? "80px 80px" : "0px 30px"

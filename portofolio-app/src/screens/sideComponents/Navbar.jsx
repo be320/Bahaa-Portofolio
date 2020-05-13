@@ -1,4 +1,5 @@
 import React from "react";
+const myFont = require('typeface-montserrat');
 
 const Navbar = ({ dark , switchTheme}) => {
   const styles = {
@@ -13,7 +14,7 @@ const Navbar = ({ dark , switchTheme}) => {
     navbarItem: {
       fontSize: "20px",
       fontWeight: "bold",
-      fontFamily: "Comic Sans MS",
+      fontFamily: myFont,
       cursor: "pointer",
       borderRadius: "20px",
       padding: "20px",

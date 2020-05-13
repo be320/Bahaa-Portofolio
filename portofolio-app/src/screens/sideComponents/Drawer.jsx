@@ -1,4 +1,5 @@
 import React from 'react';
+const myFont = require('typeface-montserrat');
 
 const Drawer = ({dark,handleDark,handleDrawer}) => {
 
@@ -16,7 +17,7 @@ const Drawer = ({dark,handleDark,handleDrawer}) => {
             margin:'0px',
             fontWeight: 'bold',
             fontSize: '20px',
-            fontFamily: 'Comic Sans MS',
+            fontFamily: myFont,
             cursor: 'pointer'
         }
     }

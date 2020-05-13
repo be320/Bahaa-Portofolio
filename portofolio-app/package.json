@@ -16,7 +16,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "typeface-montserrat": "0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",

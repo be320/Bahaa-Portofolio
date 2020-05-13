@@ -1,4 +1,5 @@
 import React from 'react';
+const myFont = require('typeface-montserrat');
 
 const EmailForm = ({dark,isDesktopOrLaptop}) => {
 
@@ -74,7 +75,7 @@ const EmailForm = ({dark,isDesktopOrLaptop}) => {
         formLabel: {
             fontSize: '20px',
             fontWeight: 'bold',
-            fontFamily:  'Comic Sans MS', 
+            fontFamily:  myFont, 
             color: dark ? '#191a1d':'#fff',
             padding: '0px 20px'
         },
@@ -85,7 +86,7 @@ const EmailForm = ({dark,isDesktopOrLaptop}) => {
             padding: '10px 20px',
             fontSize: '20px',
             fontWeight: 'bold',
-            fontFamily:  'Comic Sans MS', 
+            fontFamily:  myFont, 
             cursor: 'pointer',
         }
 

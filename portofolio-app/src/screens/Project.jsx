@@ -41,6 +41,7 @@ import ThemeButton from "./sideComponents/ThemeButton";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import CloseIcon from "@material-ui/icons/Close";
 import GitHubIcon from '@material-ui/icons/GitHub';
+const myFont = require('typeface-montserrat');
 
 const Project = ({ dark, switchTheme, match }) => {
   //Media Query Section
@@ -68,7 +69,7 @@ const Project = ({ dark, switchTheme, match }) => {
     projectTitle: {
       fontSize: isDesktopOrLaptop ? "50px" : "40px",
       fontWeight: "bold",
-      fontFamily: "Comic Sans MS",
+      fontFamily: myFont,
       color: dark ? "#52bdf1" : "#d52121",
       textAlign: "center",
       padding: "0px",
@@ -122,7 +123,7 @@ const Project = ({ dark, switchTheme, match }) => {
       descriptionTitle: {
         fontSize: isDesktopOrLaptop ? '50px': '40px',
         fontWeight: 'bold',
-        fontFamily:  'Comic Sans MS', 
+        fontFamily:  myFont, 
         color: dark ? "#191a1d" : "#fff",
         textAlign: 'center',
         padding: '50px'
@@ -130,7 +131,7 @@ const Project = ({ dark, switchTheme, match }) => {
       descriptionBody:{
         fontSize: isDesktopOrLaptop ? '30px': '20px',
         fontWeight: 'bold',
-        fontFamily:  'Comic Sans MS', 
+        fontFamily:  myFont, 
         color: dark ? "#191a1d" : "#fff",
         textAlign: 'center',
         padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
@@ -153,7 +154,7 @@ const Project = ({ dark, switchTheme, match }) => {
       linkLabel:{
         fontSize: isDesktopOrLaptop ? '30px': '20px',
         fontWeight: 'bold',
-        fontFamily:  'Comic Sans MS', 
+        fontFamily:  myFont, 
         color: dark? '#52bdf1':'#d52121',
         textAlign: 'center',
         padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
@@ -208,7 +209,7 @@ const Project = ({ dark, switchTheme, match }) => {
   };
 
   const esp = {
-    title: "Embedded Door Lock Mobile App",
+    title: "IOT Door Lock Mobile App",
     repo: "Door-Lock-App",
     images: [ESP1, ESP2, ESP3, ESP4, ESP5,ESP6],
     description: ""

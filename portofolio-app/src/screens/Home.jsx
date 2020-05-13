@@ -23,6 +23,7 @@ import RTOS from "../assets/rtos.PNG";
 import ESP from "../assets/esp.jpg";
 import { connect } from 'react-redux';
 import { switchTheme } from '../redux/redux';
+const myFont = require('typeface-montserrat');
 
 const Home = ({dark,switchTheme}) => {
   //Media Query Section
@@ -82,13 +83,13 @@ const Home = ({dark,switchTheme}) => {
       color: dark ? "#52bdf1" : "#d52121",
       fontSize: isDesktopOrLaptop ? "50px" : "30px",
       fontWeight: "bold",
-      fontFamily: "Comic Sans MS"
+      fontFamily: myFont
     },
     aboutBody: {
       color: dark ? "#fff" : "#191a1d",
       fontSize: isDesktopOrLaptop ? "30px" : "20px",
       fontWeight: "bold",
-      fontFamily: "Comic Sans MS",
+      fontFamily: myFont,
       marginTop: "10px"
     },
     aboutImageContainer: {
@@ -128,7 +129,7 @@ const Home = ({dark,switchTheme}) => {
     projectsTitle: {
       fontSize: isDesktopOrLaptop ? '50px': '40px',
       fontWeight: 'bold',
-      fontFamily:  'Comic Sans MS', 
+      fontFamily:  myFont, 
       color: 'white',
       textAlign: 'center',
       padding: '50px'
@@ -136,7 +137,7 @@ const Home = ({dark,switchTheme}) => {
     projectsBody:{
       fontSize: isDesktopOrLaptop ? '30px': '20px',
       fontWeight: 'bold',
-      fontFamily:  'Comic Sans MS', 
+      fontFamily:  myFont, 
       color: 'white',
       textAlign: 'center',
       padding: isDesktopOrLaptop ? ' 0px 200px 50px': ' 0px 50px 50px',
@@ -193,7 +194,7 @@ const Home = ({dark,switchTheme}) => {
       )}
       <div style={styles.aboutContainer} id="about">
         <div style={styles.aboutDescription}>
-          <div style={styles.aboutTitle}>Hi, I 'm Ahmed Bahaa.</div>
+          <div style={styles.aboutTitle}>Hi, I'm Ahmed Bahaa.</div>
           <div style={styles.aboutBody}>
             Software Engineering Studnet in Ain Shams University, Egypt. I am
             keen on developing elegant websites with powerful performance.
@@ -250,7 +251,7 @@ const Home = ({dark,switchTheme}) => {
           <ProjectCard poster={RTOS} isDesktopOrLaptop={isDesktopOrLaptop}  title="FreeRTOS Traffic System" dark={dark} />
           </a>
           <a href="/project/6" style={{ textDecoration: "none" }}>
-          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="Embedded Door Lock Mobile App" dark={dark} />
+          <ProjectCard poster={ESP} isDesktopOrLaptop={isDesktopOrLaptop}  title="IOT Door Lock Mobile App" dark={dark} />
           </a>
       </div>
       <div style={styles.bugContainer} id="contact" >

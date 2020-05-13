@@ -1,4 +1,5 @@
 import React from 'react';
+const myFont = require('typeface-montserrat');
 
 const ProjectCard = ({poster,title,isDesktopOrLaptop,dark}) => {
 
@@ -32,7 +33,7 @@ const ProjectCard = ({poster,title,isDesktopOrLaptop,dark}) => {
             marginTop: isDesktopOrLaptop? '30px': '10px',
             fontSize: isDesktopOrLaptop? '25px': '15px',
             fontWeight: 'bold',
-            fontFamily:  'Comic Sans MS', 
+            fontFamily:  myFont, 
             zIndex: 4,
             
         },
