@@ -6,6 +6,7 @@ import Project from "./screens/Project";
 import { Provider } from "react-redux";
 import {store,persistor} from "./redux/redux";
 import { PersistGate } from 'redux-persist/integration/react';
+
 function App() {
   return (
     <Provider store={store}>
